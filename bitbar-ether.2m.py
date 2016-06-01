@@ -13,7 +13,10 @@
 import urllib2, json
 
 r = json.loads(urllib2.urlopen('https://coinmarketcap-nexuist.rhcloud.com/api/eth').read())
-if r['change'] > 0:
+change = float(r['change'])
+if change > 0:
     print 'Ξ', format(r['price']['usd'], '.2f'), '| size=12 color=green'
 else:
     print 'Ξ', format(r['price']['usd'], '.2f'), '| size=12 color=red'
+print '---'
+print 'Change: ', change
