@@ -1,2 +1,5 @@
 # bitbar-ether
-Current Ethereum Price plugin for BitBar
+Ether's Current Price plugin for BitBar
+
+Care to donate ether? 1c6819fc6e2c6e15f1f06338c9b3a35009dcf318
+Thanks!
