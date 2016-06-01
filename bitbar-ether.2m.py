@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/python
+# coding=utf-8
 
 # Provides the latest price of Ether (in USD), pulled from CoinMarketCap
 # <bitbar.title>CoinMarketCap Ether latest price</bitbar.title>
@@ -8,6 +9,11 @@
 # <bitbar.desc>Provides the latest price of Ether (in USD), pulled from CoinMarketCap</bitbar.desc>
 #
 # by Jacob Crowther
-# Based on Mat Ryer's Coinbase Bitbar plugin
 
-echo -n "Ξ"; curl -s "https://coinmarketcap-nexuist.rhcloud.com/api/eth/price" | egrep -o '"usd":[0-9]+(\.)?([0-9]{0,2})?' | sed 's/"usd"://' | sed 's/\"//g'
+import urllib2, json
+
+r = json.loads(urllib2.urlopen('https://coinmarketcap-nexuist.rhcloud.com/api/eth').read())
+if r['change'] > 0:
+    print 'Ξ', format(r['price']['usd'], '.2f'), '| size=12 color=green'
+else:
+    print 'Ξ', format(r['price']['usd'], '.2f'), '| size=12 color=red'
